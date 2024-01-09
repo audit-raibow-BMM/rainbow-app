@@ -46,18 +46,13 @@ app.get('/search', (req, res) => {
         if (passwords[pass] === inputHash) {
             found = true;
             password = pass;
-            console.log(password)
             break;
         }
     }
 
     // Renvoie du résultat
     if (found) {
-        console.log("in found")
         const htmlPath = __dirname + '/public/result.html';
-        const htmlWithData = fs.readFileSync(htmlPath, 'utf8');
-        const htmlResponse = htmlWithData.replace('{{password}}', password);
-        console.log(htmlResponse)
         logger.info('Mot de passe correspondant trouvé : ' + password);
         res.render(htmlPath, {password:password});
     } else {

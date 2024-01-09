@@ -4,11 +4,14 @@
 </head>
 <body>
     <div class="form">
-        <h2 class="title">Mot de passe correspondant trouvé :</h2>
+        <h2 class="title">Mot de passe trouvé :</h2>
         <div class="input-container ic1">
             <p class="subtitle">Mot de passe : </p>
             <input class="input" type="text" name="hash" value="<%= password %>" disabled>
-            </input>
+            <div class="submit">
+                <a href="/">Revenir en arrière</a>
+            </div>
+            
         </div>
         
     </div>
@@ -22,6 +25,16 @@
   display: flex;
   justify-content: center;
   height: 100vh;
+}
+
+a {
+    color: #eee;
+    text-decoration: none;
+    font-size: 18px;
+    height: 50px;
+    margin-top: 38px;
+    outline: 0;
+    text-align: center;
 }
 
 .form {
