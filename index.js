@@ -15,8 +15,8 @@ app.engine('html', require('ejs').renderFile);
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: '', // Remplace par ton mot de passe MySQL
-    database: 'pirate' // Remplace par le nom de ta base de données
+    password: '',
+    database: 'pirate'
 });
 
 connection.connect((err) => {
