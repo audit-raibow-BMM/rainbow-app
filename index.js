@@ -79,7 +79,7 @@ app.post('/search', (req, res) => {
 });
 
 // Route pour générer et insérer les mots de passe hashés dans la base de données
-app.get('/generate', (req, res) => {
+app.post('/generate', (req, res) => {
     fs.readFile('passwords.json', 'utf8', (err, data) => {
         if (err) {
             logger.error('Erreur lors de la lecture du fichier JSON :', err);
