@@ -35,8 +35,8 @@ app.get('/', (req, res) => {
 });
 
 // Route pour rechercher un mot de passe correspondant à un hash
-app.get('/search', (req, res) => {
-    const inputHash = req.query.hash;
+app.post('/search', (req, res) => {
+    const inputHash = req.body.hash;
     
     let found = false;
     let password = "";
@@ -56,8 +56,9 @@ app.get('/search', (req, res) => {
         logger.info('Mot de passe correspondant trouvé : ' + password);
         res.render(htmlPath, {password:password});
     } else {
+        const htmlPath = __dirname + '/public/noresult.html';
         logger.info('Aucun mot de passe correspondant trouvé pour le hash : ' + inputHash);
-        res.send("Aucun mot de passe correspondant trouvé.");
+        res.render(htmlPath);
     }
 });
 
